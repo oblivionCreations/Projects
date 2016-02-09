@@ -1,0 +1,62 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="c:\users\vinay.g\documents\visual studio 2010\Projects\Jquery-edx\Jquery-edx\css\Style.css" rel="stylesheet" type="text/css" />
+     <script src="c:\users\vinay.g\documents\visual studio 2010\Projects\Jquery-edx\Jquery-edx\scripts\jquery-2.1.4.min.js"></script>
+      <script src="c:\users\vinay.g\documents\visual studio 2010\Projects\Jquery-edx\Jquery-edx\js\js.js" type="text/javascript"></script>
+ <style>
+  body {
+   font-family: Verdana;
+  }
+  h1, h2, h3 {
+   color: Blue;
+  }
+  .rating-circle {
+   height: 2em;
+   width: 2em;
+   border: .1em solid black;
+   border-radius: 1.1em;
+   display: inline-block;
+   margin: 0;
+   padding: .1em;
+  }
+
+  .rating-hover {
+   background-color: yellow;
+  }
+
+  .rating-chosen {
+   background-color: green;
+  }
+ </style>
+</head>
+<body>
+ <h1>Contoso Web Developer Conference</h1>
+ <h2>Finding elements using jQuery</h2>
+ <div>This session is about identifying elements using jQuery methods and selectors.</div>
+ <h3>Rate this session</h3>
+ <div id="rating-container">
+  <div class="rating-circle"></div>
+  <div class="rating-circle"></div>
+  <div class="rating-circle"></div>
+  <div class="rating-circle"></div>
+  <div class="rating-circle"></div>
+ </div>
+
+ <script>
+     $('.rating-circle').hover(function () {
+         $('#rating-container').children().removeClass('rating-chosen');
+          $(this).prevAll().andSelf().addClass('rating-hover');
+     });
+     $('.rating-circle').mouseout(function () {
+         $('#rating-container').children().removeClass('rating-hover');
+         $('#rating-container').children('.selected').addClass('rating-chosen');
+        
+     });
+     $('.rating-circle').click(function () {
+         $('#rating-container').children().removeClass('rating-chosen selected');
+         $(this).prevAll().andSelf().addClass('rating-chosen selected');         
+     });   
+ </script>
+</body>
+</html>
